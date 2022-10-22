@@ -136,7 +136,7 @@ ul {
   background-color: currentColor;
   border-radius: 2px;
   position: absolute;
-  bottom: 0;
+  bottom: -1px;
 }
 /* Контакты */
 .contacts-list {
@@ -264,12 +264,26 @@ ul {
 }
 .features-list .item {
   flex-basis: calc((100% - 60px) / 3);
+  position: relative;
 }
 .features-list .item:not(:last-child) {
   margin-right: 30px;
 }
 .features .section-title {
   margin-bottom: 50px;
+}
+.features-label {
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.14;
+  text-align: center;
+  text-transform: uppercase;
+  color: var(--main-light-color);
+  background-color: rgba(47, 48, 58, 0.8);
+  padding: 27px;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
 }
 
 /* team */
@@ -501,6 +515,11 @@ address .contacts {
 .projects-item {
   flex-basis: calc((100% - 60px) / 3);
 }
+
+.projects-img {
+  position: relative;
+  overflow: hidden;
+}
 .projects-link {
   display: block;
   background: #ffffff;
@@ -508,12 +527,18 @@ address .contacts {
   transition-property: box-shadow;
   transition-duration: 250ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
 }
 .projects-link:hover,
 .projects-link:focus {
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
     1px 4px 6px rgba(0, 0, 0, 0.16);
 }
+.projects-link:hover .projects-overlay,
+.projects-link:focus .projects-overlay {
+  transform: translateY(0);
+}
+
 .projects-discription {
   padding: 20px 24px;
   border: 1px solid #eeeeee;
@@ -529,4 +554,25 @@ address .contacts {
 .projects .text {
   font-size: 16px;
   line-height: 1.88;
+}
+
+.projects-overlay {
+  font-size: 18px;
+  line-height: 1.56;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  padding: 63px 24px;
+  background-color: rgba(33, 150, 243, 0.9);
+  color: var(--main-light-color);
+  transform: translateY(100%);
+  transition-property: transform;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+/* Модальное окно */
+.backdrop {
+  position: fixed;
 }
