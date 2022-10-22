@@ -108,13 +108,14 @@ ul {
   margin-right: 50px;
 }
 .site-nav .link {
+  position: relative;
   display: block;
   padding-top: 32px;
   padding-bottom: 32px;
   transition-property: color;
   transition-duration: 250ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  position: relative;
+
   color: var(--main-dark-color);
   font-weight: 500;
   font-size: 14px;
@@ -130,13 +131,13 @@ ul {
 }
 .link.current::after {
   content: '';
+  position: absolute;
+  bottom: -1px;
   display: block;
   width: 100%;
   height: 4px;
   background-color: currentColor;
   border-radius: 2px;
-  position: absolute;
-  bottom: -1px;
 }
 /* Контакты */
 .contacts-list {
@@ -273,6 +274,10 @@ ul {
   margin-bottom: 50px;
 }
 .features-label {
+  position: absolute;
+  bottom: 0;
+  padding: 27px;
+  width: 100%;
   font-weight: 700;
   font-size: 14px;
   line-height: 1.14;
@@ -280,10 +285,6 @@ ul {
   text-transform: uppercase;
   color: var(--main-light-color);
   background-color: rgba(47, 48, 58, 0.8);
-  padding: 27px;
-  position: absolute;
-  bottom: 0;
-  width: 100%;
 }
 
 /* team */
@@ -521,13 +522,13 @@ address .contacts {
   overflow: hidden;
 }
 .projects-link {
+  position: relative;
   display: block;
   background: #ffffff;
   color: var(--primary-text-color);
   transition-property: box-shadow;
   transition-duration: 250ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  position: relative;
 }
 .projects-link:hover,
 .projects-link:focus {
@@ -557,22 +558,65 @@ address .contacts {
 }
 
 .projects-overlay {
-  font-size: 18px;
-  line-height: 1.56;
   position: absolute;
   left: 0;
   top: 0;
+
   width: 100%;
   height: 100%;
-  padding: 63px 24px;
-  background-color: rgba(33, 150, 243, 0.9);
-  color: var(--main-light-color);
+  display: flex;
+  align-items: center;
+  padding: 0 24px;
+
   transform: translateY(100%);
   transition-property: transform;
   transition-duration: 250ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+
+  font-size: 18px;
+  line-height: 1.56;
+  background-color: rgba(33, 150, 243, 0.9);
+  color: var(--main-light-color);
 }
 /* Модальное окно */
-.backdrop {
+.hero-backdrop {
   position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  background: rgba(0, 0, 0, 0.2);
+
+  transition-property: opacity, visibility, transform;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+.hero-backdrop.is-hidden {
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+  transform: scale(0);
+}
+.hero-modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 528px;
+  height: 581px;
+
+  background-color: var(--background-color);
+}
+.close-button {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 30px;
+  height: 30px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
