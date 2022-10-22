@@ -585,11 +585,11 @@ address .contacts {
   left: 0;
   width: 100%;
   height: 100%;
+  opacity: 1;
 
   background: rgba(0, 0, 0, 0.2);
-
   transition-property: opacity, visibility, transform;
-  transition-duration: 250ms;
+  transition-duration: 2250ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 .hero-backdrop.is-hidden {
