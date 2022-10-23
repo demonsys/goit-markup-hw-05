@@ -587,9 +587,11 @@ address .contacts {
   height: 100%;
   opacity: 1;
   background: rgba(0, 0, 0, 0.2);
-  transition-property: opacity, transform;
+  transition: opacity 1250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform 1250ms cubic-bezier(0.4, 0, 0.2, 1);
+  /* transition-property: opacity, transform;
   transition-duration: 250ms;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); */
 }
 .hero-backdrop.is-hidden {
   opacity: 0;
@@ -617,4 +619,5 @@ address .contacts {
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 0;
 }
